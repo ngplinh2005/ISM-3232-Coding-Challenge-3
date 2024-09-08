@@ -18,7 +18,23 @@ function determinePerformanceRating (averageSales) {
         return "Good"
     if (averageSales >= 4000)
         return "Satisfactory"
-    else
+    if (averageSales < 4000)
         return "Needs Improvement"
 }
 
+// Task 3: Identify Top and Bottom Performers
+function findTopAndBottomPerformers(salespeople) {
+    if (salespeople.length === 0) 
+        return { topPerformer: null, bottomPerformer: null }
+  
+    const topPerformer = salespeople.reduce((top, person) => {
+      return person.sales > top.sales ? person : top
+    }, salespeople[0])
+  
+    const bottomPerformer = salespeople.reduce((bottom, person) => {
+      return person.sales < bottom.sales ? person : bottom
+    }, salespeople[0])
+  
+    return { topPerformer, bottomPerformer }
+  }
+  
