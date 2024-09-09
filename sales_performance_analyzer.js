@@ -3,7 +3,7 @@ function calculateAverageSales(sales) {
     if (sales.length === 0)
         return 0
 let totalSales = 0
-for (let i = 0, i < sales.length, i++) {
+for (let i = 0; i < sales.length; i++) {
     totalSales += sales[i]
 }
   
@@ -48,8 +48,8 @@ function generatePerformanceReport(salesData) {
       let performanceRating = determinePerformanceRating(averageSales) 
       
       performanceReport.push({
-        name: salesData[i].name
-        averageSales: averageSales
+        name: salesData[i].name,
+        averageSales: averageSales,
         performanceRating: performanceRating
       })
     }
@@ -61,10 +61,22 @@ function generatePerformanceReport(salesData) {
     )
     
     return {
-      performanceDetails: performanceReport
-      topPerformer: topAndBottomPerformers.topPerformer.name
+      performanceDetails: performanceReport,
+      topPerformer: topAndBottomPerformers.topPerformer.name,
       bottomPerformer: topAndBottomPerformers.bottomPerformer.name
     }
   }
   
+// Task 5: Test Functions with Sample Data 
+const salesData = [
 
+    { name: 'Alice', sales: [12000, 15000, 13000] },
+    
+    { name: 'Bob', sales: [7000, 6000, 7500] },
+    
+    { name: 'Charlie', sales: [3000, 4000, 3500] },
+    
+    { name: 'Diana', sales: [9000, 8500, 9200] },
+]
+
+console.log(generatePerformanceReport(salesData))
